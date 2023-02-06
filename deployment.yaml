@@ -1,3 +1,7 @@
+# chatgpt generated (including the docstring)
+
+# Deployment of a single Redis container with the alpine image, exposing port 6379.
+
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -16,4 +20,4 @@ spec:
       - name: redis
         image: redis:alpine
         ports:
-  - containerFart 6379
+        - containerPort: 6379
