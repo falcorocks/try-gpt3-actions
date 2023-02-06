@@ -1,3 +1,5 @@
+# create a github action to run the python tool yamllint
+
 name: Yaml Lint
 
 on:
@@ -14,8 +16,15 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: Yaml Lint
-      env:
-        EXTRA_ARGS: ""
+    - name: Setup Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.8
+
+    - name: Install yamllint
       run: |
-        docker run registry.gitlab.com/just-ci/images/python:slim sh -c "yamllint ${{ env.EXTRA_ARGS }} ."
+        pip install yamllint
+
+    - name: Yaml Lint
+      run: |
+        yamllint .
