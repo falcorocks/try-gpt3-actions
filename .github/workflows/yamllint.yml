@@ -28,3 +28,11 @@ jobs:
     - name: Yaml Lint
       run: |
         yamllint .
+
+# write a short documentation paragraph for the action
+# as a yaml comment, with lines shorter than 60 characters
+
+# This Github action runs the Python tool yamllint on YAML files in a repo.
+# On push event to any file with .yml or .yaml extension, the action will
+# checkout code and use a Docker image to run yamllint with a specified 
+# extra argument if needed.
