@@ -1,0 +1,22 @@
+name: Yaml Lint
+
+on:
+  push:
+    paths:
+      - '**/*.yml'
+      - '**/*.yaml'
+
+jobs:
+  yamllint:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Yaml Lint
+      uses: docker://registry.gitlab.com/just-ci/images/python:slim
+      env:
+        EXTRA_ARGS: ""
+      run: |
+        yamllint ${{ env.EXTRA_ARGS }} .
