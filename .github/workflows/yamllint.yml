@@ -10,18 +10,18 @@ jobs:
   yamllint:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
-    - name: Setup Python
-      uses: actions/setup-python@v2
-      with:
-        python-version: 3.8
-    - name: Install yamllint
-      run: |
-        pip install yamllint
-    - name: Yaml Lint
-      run: |
-        yamllint .
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+      - name: Install yamllint
+        run: |
+          pip install yamllint
+      - name: Yaml Lint
+        run: |
+          yamllint .
 
 # write a short documentation paragraph for the action
 # as a yaml comment, with lines shorter than 60 characters
