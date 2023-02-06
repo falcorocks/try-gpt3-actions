@@ -18,4 +18,4 @@ jobs:
       env:
         EXTRA_ARGS: ""
       run: |
-        docker run -it --rm registry.gitlab.com/just-ci/images/python:slim bash -c "yamllint ${{ env.EXTRA_ARGS }} ."
+        docker run registry.gitlab.com/just-ci/images/python:slim sh -c "yamllint ${{ env.EXTRA_ARGS }} ."
