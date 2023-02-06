@@ -1,38 +1,30 @@
 # create a github action to run the python tool yamllint
-
+---
 name: Yaml Lint
-
 on:
   push:
     paths:
       - '**/*.yml'
       - '**/*.yaml'
-
 jobs:
   yamllint:
     runs-on: ubuntu-latest
-
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
-
     - name: Setup Python
       uses: actions/setup-python@v2
       with:
         python-version: 3.8
-
     - name: Install yamllint
       run: |
         pip install yamllint
-
     - name: Yaml Lint
       run: |
         yamllint .
 
 # write a short documentation paragraph for the action
 # as a yaml comment, with lines shorter than 60 characters
-
 # This Github action runs the Python tool yamllint on YAML files in a repo.
 # On push event to any file with .yml or .yaml extension, the action will
-# checkout code and use a Docker image to run yamllint with a specified 
-# extra argument if needed.
+# checkout code and run yamllint.
