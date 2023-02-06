@@ -15,8 +15,7 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Yaml Lint
-      uses: docker://registry.gitlab.com/just-ci/images/python:slim
       env:
         EXTRA_ARGS: ""
       run: |
-        yamllint ${{ env.EXTRA_ARGS }} .
+        docker run -it --rm registry.gitlab.com/just-ci/images/python:slim bash -c "yamllint ${{ env.EXTRA_ARGS }} ."
